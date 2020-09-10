@@ -16,6 +16,8 @@ import {
 import { NoWallet } from './NoWallet';
 import { Wallet } from './Wallet';
 import { Staking } from './Staking';
+import { Proposals } from './Proposals';
+import { Operator } from './Operator';
 import { withRouter, useRouteMatch, useHistory, Route, Switch } from 'react-router-dom'
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Container, NavbarText } from 'reactstrap';
 
@@ -151,6 +153,18 @@ const Dashboard = (props) => {
                               contracts={contracts} 
                               accounts={accounts}
                               network={network} 
+                            />
+                          </Route>
+                          <Route path={`${path}/proposals`}>
+                            <Proposals
+                              web3={web3}
+                              accounts={accounts}
+                            />
+                          </Route>
+                          <Route path={`${path}/operator`}>
+                            <Operator
+                              web3={web3}
+                              accounts={accounts}
                             />
                           </Route>
                         </Switch>

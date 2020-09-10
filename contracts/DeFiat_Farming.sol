@@ -450,18 +450,18 @@ contract DeFiat_Farming_v12 {
 
 //== constructor 
     constructor(address _stakedToken, address _rewardToken, uint256 _feeBase1000, uint256 _durationHours, uint256 _delayStartHours) public {
-    poolOperator = msg.sender;
-    
-    poolMetrics.stakedToken = address(_stakedToken);
-    poolMetrics.rewardToken = address(_rewardToken);
-    poolMetrics.stakingFee = _feeBase1000; //10 = 1%
-    
-    poolMetrics.duration = _durationHours.mul(3600); //
-    poolMetrics.startTime = block.timestamp + _delayStartHours.mul(3600);
-    poolMetrics.closingTime = block.timestamp + poolMetrics.duration;
-    
-    poolMetrics.stakingPoints = 1; //avoirds div by 0 at start
-    FullRewards = true;
+        poolOperator = msg.sender;
+        
+        poolMetrics.stakedToken = address(_stakedToken);
+        poolMetrics.rewardToken = address(_rewardToken);
+        poolMetrics.stakingFee = _feeBase1000; //10 = 1%
+        
+        poolMetrics.duration = _durationHours.mul(3600); //
+        poolMetrics.startTime = block.timestamp + _delayStartHours.mul(3600);
+        poolMetrics.closingTime = block.timestamp + poolMetrics.duration;
+        
+        poolMetrics.stakingPoints = 1; //avoirds div by 0 at start
+        FullRewards = true;
     }
 
 //==EVENTS
